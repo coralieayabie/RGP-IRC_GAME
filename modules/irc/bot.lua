@@ -1,5 +1,6 @@
 -- Add Lua modules path
-package.path = package.path .. ";./modules/?.lua;./modules/irc/?.lua"
+package.path = package.path .. ";./modules/?.lua;./modules/irc/?.lua;./?/init.lua;./irce/?.lua;./irce/modules/?.lua;./luasocket/src/?.lua"
+package.cpath = package.cpath .. ";./luasocket/?.so"
 
 -- Load configuration
 local config = require("config")

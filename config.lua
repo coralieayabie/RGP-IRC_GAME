@@ -5,10 +5,10 @@ local config = {}
 
 -- IRC Server Configuration
 config.irc = {
-    server = "irc.oftc.net",           -- IRC server address
+    server = "irc.libera.chat",           -- IRC server address
     port = 6667,                       -- IRC server port
-    nickname = "RPG_Bot_GameMaster",  -- Bot nickname
-    default_channel = "#rpg-game",    -- Default channel to join
+    nickname = "GameMaster",  -- Bot nickname
+    default_channel = "#fauve",    -- Default channel to join
     reconnect_delay = 10,             -- Delay in seconds between reconnection attempts
     connection_timeout = 30,          -- Connection timeout in seconds
     receive_timeout = 5,             -- Receive timeout in seconds

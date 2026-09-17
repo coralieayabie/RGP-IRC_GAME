@@ -1,4 +1,4 @@
--- Add Lua modules path
+-- Set up package paths for all dependencies
 package.path = package.path .. ";./modules/?.lua;./modules/irc/?.lua;./?/init.lua;./irce/?.lua;./irce/modules/?.lua;./luasocket/src/?.lua"
 package.cpath = package.cpath .. ";./luasocket/?.so"
 
@@ -8,7 +8,6 @@ local config = require("config")
 -- Load required modules
 local Character = require("character")
 local xml = require("character_xml")
-local bot = require("irc.bot")
 
 -- Ensure saves directory exists
 local function ensure_saves_directory_exists()
@@ -54,14 +53,22 @@ local function test_character_creation()
     print("\nCharacter saved to XML.")
 end
 
+-- Test loading characters
+local function test_character_loading()
+    print("\n=== Character Loading Test ===")
+    local characters = xml.getAllCharactersFromXML()
+    print("Found " .. #characters .. " saved characters:")
+    for name, char in pairs(characters) do
+        print("  - " .. name .. " (" .. char.class .. ", Level " .. char.level .. ")")
+    end
+end
+
 -- Main function
 local function main()
     ensure_saves_directory_exists()
     test_character_creation()
-
-    -- Launch IRC bot
-    print("\n=== IRC Bot Launch ===")
-    bot.run_irc_bot()
+    test_character_loading()
+    print("\n=== All local tests passed! ===")
 end
 
 -- Execute main function
